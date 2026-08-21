@@ -1,0 +1,158 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Mansoor0x PS5 Jailbreak</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: #ffffff;
+            color: #000000;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+        
+        .container {
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            color: #000000;
+        }
+        
+        .logo span {
+            font-weight: 700;
+            color: #000000;
+        }
+        
+        .subtitle {
+            font-size: 14px;
+            color: #555555;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 16px 48px;
+            background: #000000;
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+        }
+        
+        .btn:hover {
+            background: #333333;
+            transform: scale(1.02);
+        }
+        
+        .btn:active {
+            transform: scale(0.98);
+        }
+        
+        .btn.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+            cursor: not-allowed;
+        }
+        
+        #msg {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #888888;
+            min-height: 24px;
+            font-weight: 300;
+        }
+        
+        #msg.error {
+            color: #cc0000;
+        }
+        
+        #msg.success {
+            color: #006600;
+        }
+        
+        .footer {
+            margin-top: 50px;
+            font-size: 13px;
+            color: #999999;
+            letter-spacing: 0.5px;
+        }
+        
+        .footer span {
+            color: #000000;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="logo">Mansoor0x <span>PS5</span> Jailbreak</div>
+        <div class="subtitle">by <strong>mansoor0x</strong> &bull; WebKit + Kernel Exploit</div>
+
+        <a tabindex="0" class="btn" id="run">▶ RUN JAILBREAK</a>
+        <div id="msg">WebKit + Kernel Exploit for PS5</div>
+
+        <div class="footer">
+            <span>mansoor0x</span> &bull; PS5 Security Research &bull; 2026
+        </div>
+    </div>
+
+    <script>
+        "use strict";
+
+        const EXPLOIT_URL = "notify.html";
+
+        const run = document.getElementById("run");
+        const msg = document.getElementById("msg");
+
+        const m = /PlayStation 5\/(\d+)\.(\d+)/.exec(navigator.userAgent);
+        const fw = m ? `${parseInt(m[1])}.${parseInt(m[2]).toString(16).padStart(2, "0")}` : null;
+
+        if (fw) {
+            msg.textContent = "✅ PS5 " + fw + " detected - Click RUN";
+            msg.className = "success";
+            run.classList.remove("disabled");
+        } else {
+            msg.textContent = "❌ Not a PS5 browser";
+            msg.className = "error";
+        }
+
+        run.addEventListener("click", function() {
+            if (!fw) return;
+            const q = new URLSearchParams();
+            q.set("go", "1");
+            q.set("fw", fw);
+            location.href = `${EXPLOIT_URL}?${q.toString()}`;
+        });
+    </script>
+</body>
+
+</html>
