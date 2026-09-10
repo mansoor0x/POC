@@ -4,13 +4,13 @@ DNS PS5
  : 62.210.38.117
  : 0.0.0.0
 
-PlayStation 5 WebKit Proof of Concept (PS5-POC)
+# PlayStation 5 WebKit Proof of Concept (PS5-POC)
 
-A structured technical implementation and Proof of Concept (PoC) repository designed for analyzing browser-level memory corruption vulnerabilities and execution lifecycles on target console environments.
+A technical implementation and Proof of Concept (PoC) repository designed for analyzing browser-level memory corruption vulnerabilities and execution lifecycles on target console environments.
 
 ---
 
-## 📂 Repository Architecture
+## Repository Architecture
 
 ```text
 PS5-POC/
@@ -26,9 +26,9 @@ PS5-POC/
 
 ---
 
-## ⚙️ Component Breakdown
+## Component Breakdown
 
-| Component File | Primary Role & Mechanism |
+| Component File | Primary Role and Mechanism |
 | :--- | :--- |
 | `offsets.mjs` | Defines static memory addresses and offsets corresponding to target firmware versions, ensuring precision alignment and mitigating kernel panic risks. |
 | `exploit.js` | Implements heap manipulation strategies and control flow hijacking routines to establish primitive read/write capabilities within the target environment. |
@@ -37,25 +37,25 @@ PS5-POC/
 
 ---
 
-## 🌐 Custom DNS Configuration (Blocking Telemetry & Updates)
+## Custom DNS Configuration (Network Isolation and Update Blocking)
 
-To ensure a stable testing environment and prevent unwanted automatic system updates or telemetry checks on your network, configure custom DNS settings on your console:
+To establish a controlled testing environment and prevent automatic system updates or external telemetry transmission, configure manual network parameters:
 
-1. Navigate to **Settings** > **Network** > **Set Up Internet Connection**.
-2. Select your connection type (Wi-Fi or LAN) and go to **Advanced Settings**.
-3. Set **DNS Settings** to **Manual**.
-4. Configure the primary and secondary DNS servers using reliable ad-blocking or update-blocking DNS providers (or your local DNS sinkhole configuration):
-   * **Primary DNS:** `Depending on your preferred blocker (e.g., Alby / Safe DNS)`
-   * **Secondary DNS:** `Custom Local Gateway or Secondary IP`
-
----
-
-## 🔒 Security Considerations
-
-* **Firmware Dependency:** Exploits of this nature are tightly bound to specific software versions; patches deployed by the vendor invalidate memory layouts instantly.
-* **Controlled Testing:** Deployment should be strictly restricted to isolated research environments intended for vulnerability assessment and defensive hardening analysis.
+1. Access console settings and navigate to **Network** > **Set Up Internet Connection**.
+2. Select the active interface (Wi-Fi or LAN) and access **Advanced Settings**.
+3. Modify **DNS Settings** from automatic to **Manual**.
+4. Configure primary and secondary DNS server parameters utilizing dedicated blocking servers or local sinkhole configurations:
+   * **Primary DNS:** [Configured Blocker IP]
+   * **Secondary DNS:** [Gateway or Secondary IP]
 
 ---
 
-## 📜 License
+## Security Considerations
+
+* **Firmware Dependency:** Vulnerability exploitation primitives are tightly bound to specific software builds; vendor updates invalidate memory layouts and address offsets instantly.
+* **Controlled Testing:** Usage must be strictly restricted to isolated research environments intended for vulnerability assessment and defensive hardening analysis.
+
+---
+
+## License
 This project is intended strictly for educational and security research purposes.
